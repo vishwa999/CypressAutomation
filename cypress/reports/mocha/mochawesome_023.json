@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-03-03T05:15:23.450Z",
+    "end": "2020-03-03T05:15:34.010Z",
+    "duration": 10560,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c742b100-6356-4501-ba6f-cd505ae9ed37",
+      "title": "",
+      "fullFile": "cypress\\integration\\GreenKart\\2SearchForProductPlcaOrder.js",
+      "file": "cypress\\integration\\GreenKart\\2SearchForProductPlcaOrder.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "18499d7c-cd07-4123-8b4d-5e889c3025e4",
+          "title": "Search For products and place order",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Search products and add to cart",
+              "fullTitle": "Search For products and place order Search products and add to cart",
+              "timedOut": null,
+              "duration": 8806,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var homePage = new _HomePage[\"default\"]();\nvar productPage = new _ProductPage[\"default\"]();\nvar cartPage = new _CartPage[\"default\"]();\nvar checkoutPage = new _CheckOutPage[\"default\"]();\nCypress.config('defaultCommandTimeout', 8000); //cy.visit(Cypress.env('url')+'/angularpractice/')\ncy.visit(Cypress.env('GreenKarturl'));\ncy.log('----------Select Shop button-----------');\nhomePage.getShopTab().should('have.text', 'Shop').click(); //cy.selectProduct('Blackberry')\n// Select the products and add to cart\nthis.data.productName.forEach(function (Products) {\n  cy.log('--Select this product--->' + Products);\n  cy.selectProduct(Products);\n  cy.log('--Selected the product--->' + Products);\n}); // Validate the amount\nvar sum = 0;\nproductPage.getCheckOutButton().click();\ncy.get('tr td:nth-child(4) strong').each(function ($el, index, $list) {\n  var actualText = $el.text();\n  var res = actualText.split(\" \");\n  res = res[1].trim();\n  sum = Number(sum) + Number(res);\n  cy.log(sum);\n}).then(function () {\n  cy.log(sum);\n});\nvar totalAmount = 0;\ncy.get('h3 strong').each(function ($total, indes, $list) {\n  var TotalAmount = $total.text();\n  var ActualTotalAmount = TotalAmount.split(\" \");\n  ActualTotalAmount = ActualTotalAmount[1].trim();\n  totalAmount = Number(ActualTotalAmount);\n  cy.log('------------>' + totalAmount);\n  expect(totalAmount).to.equal(sum);\n}).then(function () {\n  cy.log('------------>' + totalAmount);\n}); // Go to checkout page and place order\ncartPage.getCheckoutButton().click();\ncheckoutPage.getCountryTextFeild().type('india');\ncheckoutPage.getSelectTheCountry().click();\ncheckoutPage.getIagreeCondition().check({\n  force: true\n});\ncheckoutPage.getPurchaseButton().click();\ncy.get('.alert').should('contain.text', 'Success! Thank you! Your order will be delivered in next few weeks :-).');\ncy.get('div').should('contain.text', 'Success! Thank you! Your order will be delivered in next few weeks :-).');\ncy.get('.alert').then(function (element) {\n  var actualText = element.text();\n  expect(actualText.includes('Success!')).to.be[\"true\"];\n}); // checkoutPage.getSelectTheCountry().each(($el,index,$list)=>\n// {\n//     const listOfCountrys=$el.text()\n//     cy.log(listOfCountrys)\n//     if(listOfCountrys.includes('India'))\n//     {\n//         //cy.pause()\n//         $el.click()\n//     }\n// })",
+              "err": {},
+              "uuid": "eaebe5da-27df-48a4-ba12-f9f69217ed84",
+              "parentUUID": "18499d7c-cd07-4123-8b4d-5e889c3025e4",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "eaebe5da-27df-48a4-ba12-f9f69217ed84"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 8806,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "5.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false
+      },
+      "version": "4.1.0"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "4.1.0"
+    }
+  }
+}

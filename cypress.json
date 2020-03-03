@@ -1,0 +1,19 @@
+{
+  "env": {
+    "url": "https://demo.nopcommerce.com/",
+    "GreenKarturl": "https://rahulshettyacademy.com/angularpractice/"
+  },
+
+  "reporter": "cypress-multi-reporters",
+    "reporterOptions": {
+        "reporterEnabled": "mochawesome",
+        "mochawesomeReporterOptions": {
+            "reportDir": "cypress/reports/mocha",
+            "quite": true,
+            "overwrite": false,
+            "html": false,
+            "json": true
+        }
+    },
+  "projectId": "t6q4pp"
+}

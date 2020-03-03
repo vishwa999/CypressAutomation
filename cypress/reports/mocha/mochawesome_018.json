@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-03-03T05:13:13.565Z",
+    "end": "2020-03-03T05:13:26.930Z",
+    "duration": 13365,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8aa96868-b45b-4e91-90db-cc4c0b496408",
+      "title": "",
+      "fullFile": "cypress\\integration\\CypressTests\\1Register the user.js",
+      "file": "cypress\\integration\\CypressTests\\1Register the user.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2434c3a9-0e8e-48a2-a186-17562748cf9b",
+          "title": "Register user and validate the features",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Navigate to portal and Register the user",
+              "fullTitle": "Register user and validate the features Navigate to portal and Register the user",
+              "timedOut": null,
+              "duration": 10455,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var registerPage = new _RegisterPage[\"default\"]();\nvar homepage = new _HomePage[\"default\"]();\ncy.visit(Cypress.env('url')); //cy.visit('https://demo.nopcommerce.com/')\nhomepage.homeRegisterLink().click();\nregisterPage.registerPageHeader();\ncy.log('<---------Welcome To Registration Page--------->');\nregisterPage.registerGender().should('have.value', 'M').click();\nregisterPage.registerFirstName().type('Vishwanath');\nregisterPage.registerLastName().type('Maralappanavar');\nregisterPage.registerSelectDayOfBirth().select(this.data.DateOfBirthDay).should('have.value', this.data.DateOfBirthDay);\nregisterPage.registerSelectDayOfMonth().select(this.data.DateOfBirthMonth).should('have.value', '2');\nregisterPage.registerSelectDayOfYear().select(this.data.DateOfBirthYear).should('have.value', this.data.DateOfBirthYear); //Generate random string\nvar randomEmailId = Math.random().toString(36).substring(7);\nvar EmailId = randomEmailId + \"@\" + \"yopmail.com\";\nregisterPage.registerUSerEMail().type(EmailId);\nregisterPage.registerCompanyName().type('SelfLearning.co');\nregisterPage.registerPassword().type(this.data.Password);\nregisterPage.registerConfirmPassword().type(this.data.Password);\nregisterPage.registerRegisterButton().click();\nregisterPage.registerSuccessMessage();\ncy.log('<--------Successfully Registered the User------------>');",
+              "err": {},
+              "uuid": "c9f61f93-27d2-4053-bec1-31f7b1c93a82",
+              "parentUUID": "2434c3a9-0e8e-48a2-a186-17562748cf9b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c9f61f93-27d2-4053-bec1-31f7b1c93a82"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 10455,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "5.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false
+      },
+      "version": "4.1.0"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "4.1.0"
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2020-03-03T04:35:00.122Z",
+    "end": "2020-03-03T04:35:20.333Z",
+    "duration": 20211,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a3bd854c-5353-4208-af9f-d911c3fff8d4",
+      "title": "",
+      "fullFile": "cypress\\integration\\CypressTests\\3Seach and Place Order.js",
+      "file": "cypress\\integration\\CypressTests\\3Seach and Place Order.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8b2126f1-aad6-4c0b-a8a5-b1b0229eae92",
+          "title": "Search for the product and place order",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "search and place order",
+              "fullTitle": "Search for the product and place order search and place order",
+              "timedOut": null,
+              "duration": 17105,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "var homepage = new _HomePage[\"default\"]();\nvar loginpage = new _LoginPage[\"default\"]();\ncy.visit(Cypress.env('url'));\ncy.Login();\nhomepage.searchTextfield().type('HTC').type('{enter}');\ncy.get('.product-grid div .item-box ').find('.details h2').each(function ($mobile, index, $list) {\n  var mobiles = $mobile.text();\n  cy.log(mobiles);\n  if (mobiles.includes('HTC One Mini Blue')) {\n    cy.log(mobiles);\n    cy.get('input[type=\"button\"]').eq(index).click();\n  }\n}); //click on shoping cart link\ncy.get('#topcartlink').find('.cart-label').click(); // verify we navigated to shopping cart page\ncy.get('.page-title').find('h1').should('have.text', 'Shopping cart'); //verify expected product added to cart\n//cy.get('.cart').find('tr td.product').should('have.text','HTC One Mini Blue')\n//click on checkout\ncy.get('#checkout').click();\ncy.on('window:confirm', function (conStr) {\n  expect(conStr).to.equal('Please accept the terms of service before the next step.');\n});",
+              "err": {
+                "message": "CypressError: Timed out retrying: Expected to find element: '#checkout', but never found it.",
+                "estack": "CypressError: Timed out retrying: Expected to find element: '#checkout', but never found it.\n    at cypressErr (https://demo.nopcommerce.com/__cypress/runner/cypress_runner.js:149934:9)\n    at throwErr (https://demo.nopcommerce.com/__cypress/runner/cypress_runner.js:149867:11)\n    at Object.throwErrByPath (https://demo.nopcommerce.com/__cypress/runner/cypress_runner.js:149915:3)\n    at retry (https://demo.nopcommerce.com/__cypress/runner/cypress_runner.js:144197:19)\n    at onFailFn (https://demo.nopcommerce.com/__cypress/runner/cypress_runner.js:132448:16)\n    at tryCatcher (https://demo.nopcommerce.com/__cypress/runner/cypress_runner.js:167415:23)\n    at Promise._settlePromiseFromHandler (https://demo.nopcommerce.com/__cypress/runner/cypress_runner.js:165351:31)\n    at Promise._settlePromise (https://demo.nopcommerce.com/__cypress/runner/cypress_runner.js:165408:18)\n    at Promise._settlePromise0 (https://demo.nopcommerce.com/__cypress/runner/cypress_runner.js:165453:10)\n    at Promise._settlePromises (https://demo.nopcommerce.com/__cypress/runner/cypress_runner.js:165528:18)\n    at Async../node_modules/bluebird/js/release/async.js.Async._drainQueue (https://demo.nopcommerce.com/__cypress/runner/cypress_runner.js:162140:16)\n    at Async../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://demo.nopcommerce.com/__cypress/runner/cypress_runner.js:162150:10)\n    at Async.drainQueues (https://demo.nopcommerce.com/__cypress/runner/cypress_runner.js:162024:14)",
+                "diff": null
+              },
+              "uuid": "2fc1c4b2-7c37-475f-86f5-a84924f52804",
+              "parentUUID": "8b2126f1-aad6-4c0b-a8a5-b1b0229eae92",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "2fc1c4b2-7c37-475f-86f5-a84924f52804"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 17105,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "5.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false
+      },
+      "version": "4.1.0"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "4.1.0"
+    }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-03-02T11:23:26.075Z",
+    "end": "2020-03-02T11:23:33.101Z",
+    "duration": 7026,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "660d13a8-e96b-4824-a219-d462178b484d",
+      "title": "",
+      "fullFile": "cypress\\integration\\GreenKart\\1RegisterUser.js",
+      "file": "cypress\\integration\\GreenKart\\1RegisterUser.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "3869d032-bc8e-46a6-a01f-921b381d8daf",
+          "title": "My First Cypress TestFrame work Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "My first test case",
+              "fullTitle": "My First Cypress TestFrame work Suite My first test case",
+              "timedOut": null,
+              "duration": 5011,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var homePage = new _HomePage[\"default\"]();\nvar productPage = new _ProductPage[\"default\"]();\nvar cartPage = new _CartPage[\"default\"]();\nvar checkoutPage = new _CheckOutPage[\"default\"]();\nCypress.config('defaultCommandTimeout', 8000); //cy.visit(Cypress.env('url')+'/angularpractice/')\ncy.visit(Cypress.env('GreenKarturl'));\nhomePage.getEditBox().type(this.data.names);\nhomePage.getGendar().select(this.data.gender);\nhomePage.getToWayDataBinding().should('have.value', this.data.names);\nhomePage.getEditBox().clear().type('b');\nhomePage.getNameRules().should('have.text', 'Name should be at least 2 characters');\nhomePage.getNameFieldAttribute().should('have.attr', 'minlength', '2');\nhomePage.getEnterprenuer().should('not.be.checked').and('be.disabled'); // cy.log('----------Select Shop button-----------')\n// homePage.getShopTab().should('have.text','Shop').click()\n// //cy.selectProduct('Blackberry')\n// this.data.productName.forEach(function(Products)\n// {\n//     cy.log('--Select this product--->'+Products)\n//     cy.selectProduct(Products)\n//     cy.log('--Selected the product--->'+Products)\n// })\n// var sum=0;\n// productPage.getCheckOutButton().click()\n// cy.get('tr td:nth-child(4) strong').each(($el,index,$list)=>\n// {\n//     const actualText=$el.text()\n//     var res=actualText.split(\" \")\n//     res=res[1].trim()\n//     sum=Number(sum)+Number(res)\n//     cy.log(sum)\n// }).then(function()\n//     {\n//         cy.log(sum)\n//     }\n// )\n// var totalAmount=0\n// cy.get('h3 strong').each(($total,indes,$list)=>\n// {\n//       const TotalAmount=$total.text()\n//       var ActualTotalAmount=TotalAmount.split(\" \")\n//       ActualTotalAmount=ActualTotalAmount[1].trim()\n//       totalAmount=Number(ActualTotalAmount)\n//       cy.log('------------>'+totalAmount) \n//       expect(totalAmount).to.equal(sum)\n// }).then(function()\n// {\n//     cy.log('------------>'+totalAmount)\n//  })        \n// cartPage.getCheckoutButton().click()\n// checkoutPage.getCountryTextFeild().type('india')\n// checkoutPage.getSelectTheCountry().click()\n// checkoutPage.getIagreeCondition().check({force:true})\n// checkoutPage.getPurchaseButton().click()\n// cy.get('.alert').should('contain.text','Success! Thank you! Your order will be delivered in next few weeks :-).')\n// cy.get('div').should('contain.text','Success! Thank you! Your order will be delivered in next few weeks :-).')\n// cy.get('.alert').then(function(element)\n// {\n//     const actualText=element.text()\n//     expect(actualText.includes('Success!')).to.be.true\n// })\n// checkoutPage.getSelectTheCountry().each(($el,index,$list)=>\n// {\n//     const listOfCountrys=$el.text()\n//     cy.log(listOfCountrys)\n//     if(listOfCountrys.includes('India'))\n//     {\n//         //cy.pause()\n//         $el.click()\n//     }\n// })",
+              "err": {},
+              "uuid": "c7718fc3-6c6f-46ac-bc42-0b5524896201",
+              "parentUUID": "3869d032-bc8e-46a6-a01f-921b381d8daf",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c7718fc3-6c6f-46ac-bc42-0b5524896201"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5011,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "5.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false
+      },
+      "version": "4.1.0"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "4.1.0"
+    }
+  }
+}
