@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-03-03T07:11:03.257Z",
+    "end": "2020-03-03T07:11:25.433Z",
+    "duration": 22176,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e45c6a0b-bfa4-4b57-a4f9-7b901e00edd2",
+      "title": "",
+      "fullFile": "cypress\\integration\\CypressTests\\3Seach and Place Order.js",
+      "file": "cypress\\integration\\CypressTests\\3Seach and Place Order.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "92e16b73-c2d8-4a29-bbc0-317f05e185c6",
+          "title": "Search for the product and place order",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "search and place order",
+              "fullTitle": "Search for the product and place order search and place order",
+              "timedOut": null,
+              "duration": 19154,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var homepage = new _HomePage[\"default\"]();\nvar loginpage = new _LoginPage[\"default\"]();\ncy.visit(Cypress.env('url'));\ncy.Login();\nhomepage.searchTextfield().type('HTC').type('{enter}');\ncy.get('.product-grid div .item-box ').find('.details h2').each(function ($mobile, index, $list) {\n  var mobiles = $mobile.text();\n  cy.log(mobiles);\n  if (mobiles.includes('HTC One Mini Blue')) {\n    cy.log(mobiles);\n    cy.get('input[value=\"Add to cart\"]').eq(index).click();\n    cy.wait(3000);\n  }\n}); //click on shoping cart link\ncy.get('#topcartlink').find('.cart-label').click(); // // verify we navigated to shopping cart page\ncy.get('.page-title').find('h1').should('have.text', 'Shopping cart'); //verify expected product added to cart\ncy.get('.product-name').should('have.text', 'HTC One Mini Blue'); //click on checkout\ncy.get('.terms-of-service').find('#termsofservice').click();\ncy.get('#checkout').click();",
+              "err": {},
+              "uuid": "42c7f7a4-514f-499e-8c95-bbca3a509e65",
+              "parentUUID": "92e16b73-c2d8-4a29-bbc0-317f05e185c6",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "42c7f7a4-514f-499e-8c95-bbca3a509e65"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 19154,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "5.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false
+      },
+      "version": "4.1.0"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "4.1.0"
+    }
+  }
+}
