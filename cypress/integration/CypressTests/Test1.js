@@ -16,7 +16,7 @@ describe('Register user and validate the features',function()
        let r = Math.random().toString(36).substring(7);
          cy.log(r)
 
-        // cy.visit('https://demo.nopcommerce.com/')
+        cy.visit('https://demo.nopcommerce.com/')
         // cy.get('.ico-register').click()
         // cy.get('.page-title').find('h1').should('have.text','Register')
         // cy.log('<---------Welcome To Registration Page--------->')
